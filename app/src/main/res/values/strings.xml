@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FindMyPlace</string>
     <string name="title_activity_maps">FindMyPlace</string>
+    <string name="saved_place">Saved Places</string>
 </resources>

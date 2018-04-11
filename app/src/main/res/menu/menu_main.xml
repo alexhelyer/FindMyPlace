@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/saved_places"
+        android:title="@string/saved_place"
+        android:showAsAction="never"/>
+
+</menu>
