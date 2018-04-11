@@ -9,5 +9,7 @@ public class AddPlaceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_place);
+
+        //Esto es un comentario de Alex
     }
 }
