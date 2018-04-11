@@ -42,6 +42,7 @@
         </activity>
         <activity android:name=".SavedPlacesActivity"
             android:screenOrientation="portrait"
+            android:label="@string/saved_places"
             android:parentActivityName=".MapsActivity"/>
         <meta-data
             android:name="android.com.support.PARENT_ACTIVITY"
