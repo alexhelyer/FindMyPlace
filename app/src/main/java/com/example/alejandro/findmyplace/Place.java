@@ -29,9 +29,6 @@ public class Place {
         this.address = address;
         this.imageUrl = imageUrl;
     }
-    public Place() {
-
-    }
 
     public Place(Cursor cursor) {
         category = cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_CATEGORY));
@@ -40,11 +37,6 @@ public class Place {
         description = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_DESCRIPTION));
         address = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_ADDRESS));
         imageUrl = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
-    }
-
-    public Place(Cursor cursor) {
-        category = cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_CATEGORY));
-        location = cursor
     }
 
     public int getCategory() {
