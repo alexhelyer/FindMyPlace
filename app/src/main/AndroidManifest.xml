@@ -31,15 +31,28 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
+            android:label="@string/title_activity_maps"
+            android:launchMode="singleTop"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SavedPlacesActivity" />
-        <activity android:name=".AddPlaceActivity"></activity>
+        <activity android:name=".SavedPlacesActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MapsActivity"/>
+        <meta-data
+            android:name="android.com.support.PARENT_ACTIVITY"
+            android:value="com.example.alejandro.MapsActovoty"/>
+        <activity android:name=".AddPlaceActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/add_place"
+            android:parentActivityName=".MapsActivity"/>
+            <meta-data
+                android:name="android.com.support.PARENT_ACTIVITY"
+                android:value="com.example.alejandro.MapsActovoty"/>
     </application>
 
 </manifest>

@@ -2,4 +2,6 @@
     <string name="app_name">FindMyPlace</string>
     <string name="title_activity_maps">FindMyPlace</string>
     <string name="saved_place">Saved Places</string>
+    <string name="saved_places">Saved Places</string>
+    <string name="add_place">Add Place</string>
 </resources>
