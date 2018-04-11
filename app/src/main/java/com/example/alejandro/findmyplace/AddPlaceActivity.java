@@ -11,5 +11,10 @@ public class AddPlaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_place);
 
         //Esto es un comentario de Alex
+
+        Place place = new Place();
+
+
+
     }
 }
