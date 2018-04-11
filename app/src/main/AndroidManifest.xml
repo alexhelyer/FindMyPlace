@@ -45,14 +45,14 @@
             android:parentActivityName=".MapsActivity"/>
         <meta-data
             android:name="android.com.support.PARENT_ACTIVITY"
-            android:value="com.example.alejandro.MapsActovoty"/>
+            android:value="com.example.alejandro.MapsActivity"/>
         <activity android:name=".AddPlaceActivity"
             android:screenOrientation="portrait"
             android:label="@string/add_place"
             android:parentActivityName=".MapsActivity"/>
             <meta-data
                 android:name="android.com.support.PARENT_ACTIVITY"
-                android:value="com.example.alejandro.MapsActovoty"/>
+                android:value="com.example.alejandro.MapsActivity"/>
     </application>
 
 </manifest>
