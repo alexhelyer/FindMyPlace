@@ -6,6 +6,17 @@
     android:orientation="vertical"
     tools:context="com.example.alejandro.findmyplace.AddPlaceActivity">
 
+    <TextView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LatLgn"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categoria"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
