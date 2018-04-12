@@ -5,4 +5,6 @@
     <string name="saved_places">Saved Places</string>
     <string name="add_place">Add Place</string>
     <string name="search_name">Search by name...</string>
+    <string name="latitude_key">LATITUDE</string>
+    <string name="longitude_key">LONGITUDE</string>
 </resources>

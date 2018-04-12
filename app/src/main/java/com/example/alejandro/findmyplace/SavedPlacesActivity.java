@@ -57,7 +57,10 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
         ButterKnife.bind(this);
         sqlController = new SqlController(this);
 
-        getCurrentLocation();
+        Bundle extras = getIntent().getExtras();
+        Double latitude = extras.getDouble(getString(R.string.latitude_key));
+        Double longitude = extras.getDouble(getString(R.string.longitude_key));
+        currentLocation = new LatLng(latitude,longitude);
 
         searchEditText.addTextChangedListener(this);
 
@@ -98,14 +101,6 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
         placeList = sortingManager.mergeSort();
         placesProgressBar.setVisibility(View.GONE);
         placeAdapter.notifyDataSetChanged();
-    }
-
-    //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-    //TODO Get current location
-    private LatLng getCurrentLocation() {
-        //currentLocation
-        return null;
     }
 
     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
