@@ -130,7 +130,6 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
                         FeedEntry.COLUMN_IMAGEURL},FeedEntry.COLUMN_CATEGORY + " = " + String.valueOf(position),null    ,
                 null,null,null,null);
         showPlacesList(cursor);
-
     }
 
     //Handles when clicking on place location button
@@ -149,7 +148,7 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
         placesProgressBar.setVisibility(View.VISIBLE);
         Cursor cursor = sqlController.readData(FeedEntry.TABLE_NAME,new String[]{FeedEntry._ID,
                 FeedEntry.COLUMN_CATEGORY,FeedEntry.COLUMN_TITLE,FeedEntry.COLUMN_LATITUDE,FeedEntry.COLUMN_LONGITUDE,
-                FeedEntry.COLUMN_IMAGEURL},FeedEntry.COLUMN_TITLE + " LIKE %" +s.toString().trim() + "%",null,
+                FeedEntry.COLUMN_IMAGEURL},FeedEntry.COLUMN_TITLE + " LIKE '%" +s.toString().trim() + "%'",null,
                 null,null,null,null);
         showPlacesList(cursor);
     }
