@@ -88,7 +88,7 @@ public class Place {
     }
 
     public int getDistance(LatLng toLocation){
-        
+
     }
 
     public ContentValues toContentValues(){
