@@ -110,12 +110,12 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
     //TODO implement the obtention of the category list
     private List<Category> getCategoryList() {
         List<Category> categories = new ArrayList<>();
-        categories.add(new Category(1,"Categoría 1"));
-        categories.add(new Category(1,"Categoría 2"));
-        categories.add(new Category(1,"Categoría 3"));
-        categories.add(new Category(1,"Categoría 4"));
-        categories.add(new Category(1,"Categoría 5"));
-        categories.add(new Category(1,"Categoría 6"));
+        categories.add(new Category(1,getString(R.string.restaurant)));
+        categories.add(new Category(1,getString(R.string.hotel)));
+        categories.add(new Category(1,getString(R.string.bar)));
+        categories.add(new Category(1,getString(R.string.gas)));
+        categories.add(new Category(1,getString(R.string.cafe)));
+        categories.add(new Category(1,getString(R.string.airport)));
         return categories;
     }
 
