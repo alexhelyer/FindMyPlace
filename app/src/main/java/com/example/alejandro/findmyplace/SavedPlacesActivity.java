@@ -45,7 +45,7 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
 
     private CategoryAdapter categoryAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<Category> categories;
+    private List<Category> categories;
 
     private LatLng currentLocation;
     private SqlController sqlController;
@@ -108,8 +108,15 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
 
 
     //TODO implement the obtention of the category list
-    private ArrayList<Category> getCategoryList() {
-        return null;
+    private List<Category> getCategoryList() {
+        List<Category> categories = new ArrayList<>();
+        categories.add(new Category(1,"Categoría 1"));
+        categories.add(new Category(1,"Categoría 2"));
+        categories.add(new Category(1,"Categoría 3"));
+        categories.add(new Category(1,"Categoría 4"));
+        categories.add(new Category(1,"Categoría 5"));
+        categories.add(new Category(1,"Categoría 6"));
+        return categories;
     }
 
     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,7 +127,7 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
         placesProgressBar.setVisibility(View.VISIBLE);
         Cursor cursor = sqlController.readData(FeedEntry.TABLE_NAME,new String[]{FeedEntry._ID,
                         FeedEntry.COLUMN_CATEGORY,FeedEntry.COLUMN_TITLE,FeedEntry.COLUMN_LATITUDE,FeedEntry.COLUMN_LONGITUDE,
-                        FeedEntry.COLUMN_IMAGEURL},FeedEntry.COLUMN_CATEGORY + " =?",new String[]{String.valueOf(position)},
+                        FeedEntry.COLUMN_IMAGEURL},FeedEntry.COLUMN_CATEGORY + " = " + String.valueOf(position),null    ,
                 null,null,null,null);
         showPlacesList(cursor);
 
@@ -142,7 +149,7 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
         placesProgressBar.setVisibility(View.VISIBLE);
         Cursor cursor = sqlController.readData(FeedEntry.TABLE_NAME,new String[]{FeedEntry._ID,
                 FeedEntry.COLUMN_CATEGORY,FeedEntry.COLUMN_TITLE,FeedEntry.COLUMN_LATITUDE,FeedEntry.COLUMN_LONGITUDE,
-                FeedEntry.COLUMN_IMAGEURL},FeedEntry.COLUMN_TITLE + " LIKE %?%",new String[]{s.toString()},
+                FeedEntry.COLUMN_IMAGEURL},FeedEntry.COLUMN_TITLE + " LIKE %" +s.toString().trim() + "%",null,
                 null,null,null,null);
         showPlacesList(cursor);
     }
