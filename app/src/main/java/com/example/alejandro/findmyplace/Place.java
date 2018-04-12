@@ -30,14 +30,14 @@ public class Place {
         this.imageUrl = imageUrl;
     }
 
-    public Place(Cursor cursor) {
+    /*public Place(Cursor cursor) {
         category = cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_CATEGORY));
         location = new LatLng(cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LATITUDE)), cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LONGITUDE)));
         title = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_TITLE));
         description = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_DESCRIPTION));
         address = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_ADDRESS));
         imageUrl = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
-    }
+    }*/
 
     public int getCategory() {
         return category;
@@ -88,10 +88,10 @@ public class Place {
     }
 
     public int getDistance(LatLng toLocation){
-
+      
     }
 
-    public ContentValues toContentValues(){
+    /*public ContentValues toContentValues(){
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(FeedEntry.COLUMN_CATEGORY, category);
@@ -103,6 +103,6 @@ public class Place {
         contentValues.put(FeedEntry.COLUMN_IMAGEURL, imageUrl);
 
         return contentValues;
-    }
+    }*/
 
 }
