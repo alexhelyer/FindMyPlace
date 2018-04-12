@@ -4,4 +4,5 @@
     <string name="saved_place">Saved Places</string>
     <string name="saved_places">Saved Places</string>
     <string name="add_place">Add Place</string>
+    <string name="search_name">Search by name...</string>
 </resources>
