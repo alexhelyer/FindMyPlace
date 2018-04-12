@@ -22,6 +22,7 @@ public class PlacesApiHandler {
     public static final String API_KEY = "&key=AIzaSyA7m5YQp_OQXvZ7DzylErwubKq7BhIVUcs";
 
 
+    //TODO handle correctly image parsing
     public static String getImageUrl(Place place,Context context){
         String requestingUrl = getRequestingUrl(place);
 
@@ -50,6 +51,7 @@ public class PlacesApiHandler {
         return BASE_URL + address + LOCATION + String.valueOf(latitude) + "," + String.valueOf(longitude) + RADIUS + API_KEY;
     }
 
+    //TODO handle correctly image parsing
     private String parseResponse(JSONObject response){
         return "faskhldfj";
     }

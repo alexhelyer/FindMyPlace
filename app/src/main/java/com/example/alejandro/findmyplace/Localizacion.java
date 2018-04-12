@@ -25,7 +25,7 @@ public class Localizacion implements LocationListener {
         Log.i("Location",location.getLatitude()+":"+location.getLongitude());
         place.setLocation(new LatLng(location.getLatitude(), location.getLongitude()));
         //new Geocoder();
-        Geocoder geocoder = new Geocoder(this,location.);
+        //Geocoder geocoder = new Geocoder(this,location.);
     }
 
     @Override

@@ -97,6 +97,7 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
         return convertView;
     }
 
+    //TODO return images according to the category
     private int getCategoryImage(int category){
         return -1;
     }
