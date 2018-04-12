@@ -42,6 +42,13 @@ public class Place {
         imageUrl = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
     }
 
+    public Place(Cursor cursor,boolean isPlaceAdapter) {
+        category = cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_CATEGORY));
+        location = new LatLng(cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LATITUDE)), cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LONGITUDE)));
+        title = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_TITLE));
+        imageUrl = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
+    }
+
     public int getCategory() {
         return category;
     }

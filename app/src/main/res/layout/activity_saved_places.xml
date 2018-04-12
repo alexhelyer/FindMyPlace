@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context="com.example.alejandro.findmyplace.SavedPlacesActivity">
 
+    <ProgressBar
+        android:id="@+id/saved_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/saved_places"
+        app:layout_constraintEnd_toEndOf="@+id/saved_places"
+        app:layout_constraintStart_toStartOf="@+id/saved_places"
+        app:layout_constraintTop_toTopOf="@+id/saved_places" />
+
     <EditText
         android:id="@+id/saved_search_view"
         android:layout_width="0dp"
