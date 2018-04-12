@@ -17,6 +17,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + FeedEntry.COLUMN_CATEGORY + " INTEGER NOT NULL,"
             + FeedEntry.COLUMN_LONGITUDE + " DOUBLE NOT NULL,"
             + FeedEntry.COLUMN_LATITUDE + " DOUBLE NOT NULL,"
+            + FeedEntry.COLUMN_IMAGEURL + " TEXT NOT NULL,"
             + FeedEntry.COLUMN_TITLE + " TEXT NOT NULL,"
             + FeedEntry.COLUMN_DESCRIPTION + " TEXT NOT NULL,"
             + FeedEntry.COLUMN_ADDRESS + " TEXT NOT NULL)";
