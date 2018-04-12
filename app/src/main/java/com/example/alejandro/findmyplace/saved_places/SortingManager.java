@@ -16,12 +16,12 @@ public class SortingManager<T extends Place>{
 
     private T[] array;
     private Class aClass;
-    private LatLng toLocation;
+    private LatLng fromLocation;
 
-    public SortingManager(T[] array, Class aClass, LatLng toLocation) {
+    public SortingManager(T[] array, Class aClass, LatLng fromLocation) {
         this.array = array;
         this.aClass = aClass;
-        this.toLocation = toLocation;
+        this.fromLocation = fromLocation;
     }
 
     public List<T> mergeSort(){
@@ -68,7 +68,7 @@ public class SortingManager<T extends Place>{
         //Sorts elements
         while (i < firstHalfSize && j < secondHalfSize) {
             // Change this condition accordingly
-            if (firstHalf[i].getDistance(toLocation)<=secondHalf[j].getDistance(toLocation)) {
+            if (firstHalf[i].getDistance(fromLocation)<=secondHalf[j].getDistance(fromLocation)) {
                 array[k] = firstHalf[i];
                 i++;
             } else {

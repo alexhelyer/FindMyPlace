@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.maps.android.SphericalUtil;
 
 /**
  * Created by alejandro on 11/04/18.
@@ -29,6 +30,7 @@ public class Place {
         this.address = address;
         this.imageUrl = imageUrl;
     }
+
 
     public Place(Cursor cursor) {
         category = cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_CATEGORY));
@@ -87,9 +89,10 @@ public class Place {
         this.imageUrl = imageUrl;
     }
 
-    public int getDistance(LatLng toLocation){
-
+    public int getDistance(LatLng fromLocation){
+        return (int) SphericalUtil.computeDistanceBetween(fromLocation,location);
     }
+
 
     public ContentValues toContentValues(){
         ContentValues contentValues = new ContentValues();
