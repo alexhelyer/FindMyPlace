@@ -13,22 +13,26 @@
         android:text="LatLgn"/>
 
     <Button
+        android:id="@+id/btnCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Categoria"/>
 
     <EditText
+        android:id="@+id/inputTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Titulo"/>
 
     <EditText
+        android:id="@+id/inputDescription"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="top"
         android:hint="Descipcion"/>
 
     <Button
+        android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"

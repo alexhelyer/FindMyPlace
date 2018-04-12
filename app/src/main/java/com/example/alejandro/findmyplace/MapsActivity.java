@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -98,6 +99,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     Toast.makeText(this, "Aun no se ha detectado el GPS", Toast.LENGTH_SHORT).show();
                 }
                 break;
+
+            case R.id.main_location_button:
+                if (place.getLocation()!=null) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(place.getLocation().latitude, place.getLocation().longitude), 14.0f));
+                    Log.i("Obtener location","...");
+                } else {
+                    Toast.makeText(this, "Obteniendo ubicacion...", Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 
@@ -115,8 +125,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //LatLng sydney = new LatLng(-34, 151);
+        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }
