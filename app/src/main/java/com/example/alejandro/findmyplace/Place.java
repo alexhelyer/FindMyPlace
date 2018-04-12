@@ -87,6 +87,10 @@ public class Place {
         this.imageUrl = imageUrl;
     }
 
+    public int getDistance(LatLng toLocation){
+        
+    }
+
     public ContentValues toContentValues(){
         ContentValues contentValues = new ContentValues();
 
