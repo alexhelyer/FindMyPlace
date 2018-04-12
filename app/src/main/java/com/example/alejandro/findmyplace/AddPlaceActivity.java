@@ -12,7 +12,7 @@ public class AddPlaceActivity extends AppCompatActivity {
 
         //Esto es un comentario de Alex
 
-        Place place = new Place();
+
 
 
 
