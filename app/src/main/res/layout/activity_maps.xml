@@ -14,27 +14,29 @@
         tools:context="com.example.alejandro.findmyplace.MapsActivity" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/main_float_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:clickable="true"
-        android:src="@drawable/common_google_signin_btn_icon_dark_normal_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btnMyLocation"
+        android:id="@+id/main_location_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:backgroundTint="#FFF"
         app:borderWidth="0dp"
         android:src="@drawable/ic_my_location_black_24dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+                                                        
+        android:id="@+id/btnMyLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add_circle_outline_white_48dp" />
 
 
 </android.support.constraint.ConstraintLayout>

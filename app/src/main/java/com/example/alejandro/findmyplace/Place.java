@@ -17,18 +17,16 @@ public class Place {
     LatLng location;
     String title;
     String description;
-    String address;
-    String imageUrl;
+    byte[] imageUrl;
 
     public Place() {
     }
 
-    public Place(int category, LatLng location, String title, String description, String address, String imageUrl) {
+    public Place(int category, LatLng location, String title, String description, byte[] imageUrl) {
         this.category = category;
         this.location = location;
         this.title = title;
         this.description = description;
-        this.address = address;
         this.imageUrl = imageUrl;
     }
 
@@ -38,15 +36,14 @@ public class Place {
         location = new LatLng(cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LATITUDE)), cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LONGITUDE)));
         title = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_TITLE));
         description = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_DESCRIPTION));
-        address = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_ADDRESS));
-        imageUrl = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
+        imageUrl = cursor.getBlob(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
     }
 
     public Place(Cursor cursor,boolean isPlaceAdapter) {
         category = cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_CATEGORY));
         location = new LatLng(cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LATITUDE)), cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LONGITUDE)));
         title = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_TITLE));
-        imageUrl = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
+        imageUrl = cursor.getBlob(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
     }
 
     public int getCategory() {
@@ -81,19 +78,11 @@ public class Place {
         this.description = description;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getImageUrl() {
+    public byte[] getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(byte[] imageUrl) {
         this.imageUrl = imageUrl;
     }
 
@@ -110,7 +99,6 @@ public class Place {
         contentValues.put(FeedEntry.COLUMN_LONGITUDE, location.longitude);
         contentValues.put(FeedEntry.COLUMN_TITLE, title);
         contentValues.put(FeedEntry.COLUMN_DESCRIPTION, description);
-        contentValues.put(FeedEntry.COLUMN_ADDRESS, address);
         contentValues.put(FeedEntry.COLUMN_IMAGEURL, imageUrl);
 
         return contentValues;
