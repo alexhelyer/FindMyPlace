@@ -106,8 +106,6 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
 
     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-    //TODO implement the obtention of the category list
     private List<Category> getCategoryList() {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category(R.drawable.restaurant,getString(R.string.restaurant)));
