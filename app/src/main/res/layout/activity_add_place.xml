@@ -6,37 +6,56 @@
     android:orientation="vertical"
     tools:context="com.example.alejandro.findmyplace.AddPlaceActivity">
 
-    <TextView
-        android:padding="10dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LatLgn"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Categoria"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingVertical="20dp"
+            android:paddingHorizontal="10dp"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/inputTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Titulo"/>
+            <Button
+                android:id="@+id/btnCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Categoria"/>
 
-    <EditText
-        android:id="@+id/inputDescription"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="top"
-        android:hint="Descipcion"/>
+            <EditText
+                android:id="@+id/inputTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Titulo"/>
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Guardar"/>
+            <EditText
+                android:id="@+id/inputDescription"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="top"
+                android:hint="Descipcion"/>
+
+            <ImageView
+                android:id="@+id/imagePhoto"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/ic_plus"
+                android:backgroundTint="#EEE"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Guardar"/>
+
+
+        </LinearLayout>
+    </ScrollView>
 
 
 
