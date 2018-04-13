@@ -83,7 +83,8 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
         viewHolder.titleTextView.setText(currentPlace.getTitle());
         viewHolder.distanceTextView.setText(String.format("%s m",currentPlace.getDistance(fromLocation)));
         Glide.with(parent.getContext())
-                .load(getCategoryImage(currentPlace.getCategory()))
+                .load("")
+                .error(getCategoryImage(currentPlace.getCategory()))
                 .into(viewHolder.categoryImage);
         Glide.with(parent.getContext())
                 .load(currentPlace.getImageUrl())
@@ -98,8 +99,10 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
         return convertView;
     }
 
-    //TODO return images according to the category
     private int getCategoryImage(int category){
-        return -1;
+        int[] categories = {R.drawable.restaurant,R.drawable.hotel,R.drawable.bar,
+                R.drawable.gas,R.drawable.cafe,R.drawable.airport};
+
+        return categories[category];
     }
 }

@@ -11,7 +11,6 @@ import java.util.List;
  * Created by diego on 11/04/18.
  */
 
-//TODO Change extending class and the sorting condition which is dependent on the class mentioned before
 public class SortingManager<T extends Place>{
 
     private T[] array;

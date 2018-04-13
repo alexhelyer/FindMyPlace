@@ -21,36 +21,6 @@ public class PlacesApiHandler {
     public static final String RADIUS = "&radius=100";
     public static final String API_KEY = "&key=AIzaSyA7m5YQp_OQXvZ7DzylErwubKq7BhIVUcs";
 
-
-    //TODO handle correctly image parsing
-    public static String getImageUrl(Place place,Context context){
-        String requestingUrl = getRequestingUrl(place);
-
-        VolleySingleton singleton = VolleySingleton.getInstance(context);
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, requestingUrl, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                return;
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        singleton.addToRequestQueue(request);
-        return request.toString();
-
-    }
-
-    private static String getRequestingUrl(Place place){
-        String address = place.getAddress();
-        double latitude = place.getLocation().latitude;
-        double longitude = place.getLocation().longitude;
-
-        return BASE_URL + address + LOCATION + String.valueOf(latitude) + "," + String.valueOf(longitude) + RADIUS + API_KEY;
-    }
-
     //TODO handle correctly image parsing
     private String parseResponse(JSONObject response){
         return "faskhldfj";
