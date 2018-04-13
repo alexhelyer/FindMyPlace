@@ -5,4 +5,12 @@
     <string name="saved_places">Saved Places</string>
     <string name="add_place">Add Place</string>
     <string name="search_name">Search by name...</string>
+    <string name="latitude_key">LATITUDE</string>
+    <string name="longitude_key">LONGITUDE</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="hotel">Hotel</string>
+    <string name="bar">Bar</string>
+    <string name="gas">Gas</string>
+    <string name="cafe">Café</string>
+    <string name="airport">Airport</string>
 </resources>

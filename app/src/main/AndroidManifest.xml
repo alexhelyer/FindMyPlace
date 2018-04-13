@@ -46,7 +46,9 @@
         <activity android:name=".SavedPlacesActivity"
             android:screenOrientation="portrait"
             android:label="@string/saved_places"
-            android:parentActivityName=".MapsActivity"/>
+            android:parentActivityName=".MapsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            />
         <meta-data
             android:name="android.com.support.PARENT_ACTIVITY"
             android:value="com.example.alejandro.MapsActivity"/>

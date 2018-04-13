@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,7 +33,7 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
     private OnClickListener listener;
     private LatLng fromLocation;
 
-    public PlaceAdapter(Context context, ArrayList<Place> placeList, OnClickListener listener, LatLng fromLocation){
+    public PlaceAdapter(Context context, List<Place> placeList, OnClickListener listener, LatLng fromLocation){
         super(context, R.layout.row_saved_place,placeList);
         this.context = context;
         this.listener = listener;
@@ -85,7 +86,7 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
                 .load(getCategoryImage(currentPlace.getCategory()))
                 .into(viewHolder.categoryImage);
         Glide.with(parent.getContext())
-                .load(PlacesApiHandler.getImageUrl(currentPlace,getContext()))
+                .load(currentPlace.getImageUrl())
                 .into(viewHolder.imageView);
         viewHolder.locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
