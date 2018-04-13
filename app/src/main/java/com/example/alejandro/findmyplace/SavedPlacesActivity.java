@@ -111,11 +111,11 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
     private List<Category> getCategoryList() {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category(R.drawable.restaurant,getString(R.string.restaurant)));
-        categories.add(new Category(1,getString(R.string.hotel)));
-        categories.add(new Category(1,getString(R.string.bar)));
-        categories.add(new Category(1,getString(R.string.gas)));
-        categories.add(new Category(1,getString(R.string.cafe)));
-        categories.add(new Category(1,getString(R.string.airport)));
+        categories.add(new Category(R.drawable.hotel,getString(R.string.hotel)));
+        categories.add(new Category(R.drawable.bar,getString(R.string.bar)));
+        categories.add(new Category(R.drawable.gas,getString(R.string.gas)));
+        categories.add(new Category(R.drawable.cafe,getString(R.string.cafe)));
+        categories.add(new Category(R.drawable.airport,getString(R.string.airport)));
         return categories;
     }
 

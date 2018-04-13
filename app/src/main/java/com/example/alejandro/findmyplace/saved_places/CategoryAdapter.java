@@ -45,7 +45,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
             categoryText.setText(myCategory.getTitle());
             Glide.with(itemView.getContext())
-                    .load(myCategory.getImage())
+                    .load("")
+                    .error(myCategory.getImage())
                     .into(categpryImage);
 
             itemView.setOnClickListener(new View.OnClickListener() {
