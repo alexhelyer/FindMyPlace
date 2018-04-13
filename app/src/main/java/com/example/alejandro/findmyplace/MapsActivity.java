@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -50,6 +51,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //place.setLocation(new LatLng(19.102933,-99.193289));
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         Localizacion localizacion = new Localizacion(place);
+
+
+        FloatingActionButton btnLocation = findViewById(R.id.btnMyLocation);
+        btnLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MapsActivity.this, "Pressed!", Toast.LENGTH_SHORT).show();
+                if (place.getLocation()!=null) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(place.getLocation().latitude, place.getLocation().longitude), 14.0f));
+                    Log.i("Obtener location","...");
+                } else {
+                    Toast.makeText(MapsActivity.this, "Obteniendo ubicacion...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -97,15 +113,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     startActivity(intent);
                 } else {
                     Toast.makeText(this, "Aun no se ha detectado el GPS", Toast.LENGTH_SHORT).show();
-                }
-                break;
-
-            case R.id.main_location_button:
-                if (place.getLocation()!=null) {
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(place.getLocation().latitude, place.getLocation().longitude), 14.0f));
-                    Log.i("Obtener location","...");
-                } else {
-                    Toast.makeText(this, "Obteniendo ubicacion...", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
