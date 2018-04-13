@@ -74,12 +74,11 @@ public class PlacesApiHandler {
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        }catch (Exception e){
         }
         return routes;
     }
 
-    private List<LatLng> decodePolyline(String polylineString) {
+    private static List<LatLng> decodePolyline(String polylineString) {
 
         List<LatLng> polyline = new ArrayList<>();
         int index = 0;;
