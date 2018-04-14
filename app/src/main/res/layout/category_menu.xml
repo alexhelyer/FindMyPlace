@@ -18,28 +18,28 @@
             android:id="@+id/ic_restaurant"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_restaurant_black_24dp"
-            android:padding="10dp"
+            android:src="@drawable/restaurant"
+            android:padding="2dp"
             android:layout_margin="10dp"
-            android:background="#DDD"/>
+            android:background="#FFF"/>
 
         <ImageView
             android:id="@+id/ic_bar"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_local_bar_black_24dp"
-            android:padding="10dp"
+            android:src="@drawable/bar"
+            android:padding="2dp"
             android:layout_margin="10dp"
-            android:background="#DDD"/>
+            android:background="#FFF"/>
 
         <ImageView
             android:id="@+id/ic_cafe"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_local_cafe_black_24dp"
-            android:padding="10dp"
+            android:src="@drawable/cafe"
+            android:padding="2dp"
             android:layout_margin="10dp"
-            android:background="#DDD"/>
+            android:background="#FFF"/>
 
     </LinearLayout>
 
@@ -54,28 +54,28 @@
             android:id="@+id/ic_hotel"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_hotel_black_24dp"
-            android:padding="10dp"
+            android:src="@drawable/hotel"
+            android:padding="2dp"
             android:layout_margin="10dp"
-            android:background="#DDD"/>
+            android:background="#FFF"/>
 
         <ImageView
             android:id="@+id/ic_gas"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_local_gas_station_black_24dp"
-            android:padding="10dp"
+            android:src="@drawable/gas"
+            android:padding="2dp"
             android:layout_margin="10dp"
-            android:background="#DDD"/>
+            android:background="#FFF"/>
 
         <ImageView
             android:id="@+id/ic_flight"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_flight_black_24dp"
-            android:padding="10dp"
+            android:src="@drawable/airport"
+            android:padding="2dp"
             android:layout_margin="10dp"
-            android:background="#DDD"/>
+            android:background="#FFF"/>
 
     </LinearLayout>
 

@@ -18,24 +18,36 @@
             android:paddingHorizontal="10dp"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnCategory"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
-                android:text="Restaurante"/>
+                android:layout_gravity="top"
+                android:orientation="horizontal">
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnCategory"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="5dp"
+                    android:background="@drawable/ic_box"
+                    android:backgroundTint="#AAA"
+                    android:layout_marginVertical="20dp"/>
 
-                <EditText
-                    android:id="@+id/inputTitle"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Titulo"/>
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/inputTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Titulo"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+
 
 
 

@@ -59,10 +59,10 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
         sqlController = new SqlController(this);
 
         Bundle extras = getIntent().getExtras();
-        //Double latitude = extras.getDouble(getString(R.string.latitude_key));
-       // Double longitude = extras.getDouble(getString(R.string.longitude_key));
-        //currentLocation = new LatLng(latitude,longitude);
-        currentLocation = new LatLng(19.90,-99.90);
+        Double latitude = extras.getDouble(getString(R.string.latitude_key));
+        Double longitude = extras.getDouble(getString(R.string.longitude_key));
+        currentLocation = new LatLng(latitude,longitude);
+        //currentLocation = new LatLng(19.90,-99.90);
 
         searchEditText.addTextChangedListener(this);
 
