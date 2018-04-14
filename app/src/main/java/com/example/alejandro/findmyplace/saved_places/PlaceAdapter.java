@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,7 +52,7 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
         ImageView imageView;
         @BindView(R.id.place_distance) TextView distanceTextView;
         @BindView(R.id.place_location_button)
-        Button locationButton;
+        ImageButton locationButton;
         @BindView(R.id.place_category)
         CircularImageView categoryImage;
 

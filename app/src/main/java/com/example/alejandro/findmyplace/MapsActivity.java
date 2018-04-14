@@ -53,7 +53,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         addPlaceButton.setOnClickListener(this);
 
         place = new Place();
-        //place.setLocation(new LatLng(19.102933,-99.193289));
+        place.setLocation(new LatLng(19.102933,-99.193289));
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         localizacion = new Localizacion(place);
 
@@ -123,6 +123,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         switch (item.getItemId()){
             case R.id.saved_places:
                 Intent intent = new Intent(this,SavedPlacesActivity.class);
+                intent.putExtra(getString(R.string.latitude_key), place.getLocation().latitude);
+                intent.putExtra(getString(R.string.longitude_key), place.getLocation().longitude);
                 startActivity(intent);
                 break;
         }
