@@ -133,7 +133,11 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
     //Handles when clicking on place location button
     @Override
     public void OnClick(int position) {
-
+        Place currentPlace = placeList.get(position);
+        Intent intent = new Intent(this,MapsActivity.class);
+        intent.putExtra(getString(R.string.latitude_key),currentPlace.getLocation().latitude);
+        intent.putExtra(getString(R.string.longitude_key),currentPlace.getLocation().longitude);
+        startActivity(intent);
     }
 
     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
