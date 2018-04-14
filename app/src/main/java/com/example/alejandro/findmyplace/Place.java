@@ -17,33 +17,39 @@ public class Place {
     LatLng location;
     String title;
     String description;
-    byte[] imageUrl;
+    String imageUri;
+    int id;
 
     public Place() {
     }
 
-    public Place(int category, LatLng location, String title, String description, byte[] imageUrl) {
+    public Place(int category, LatLng location, String title, String description, String imageUri) {
         this.category = category;
         this.location = location;
         this.title = title;
         this.description = description;
-        this.imageUrl = imageUrl;
+        this.imageUri = imageUri;
     }
-
 
     public Place(Cursor cursor) {
         category = cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_CATEGORY));
         location = new LatLng(cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LATITUDE)), cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LONGITUDE)));
         title = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_TITLE));
         description = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_DESCRIPTION));
-        imageUrl = cursor.getBlob(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
+        imageUri = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGE_URI));
+        id = cursor.getInt(cursor.getColumnIndex(FeedEntry._ID));
     }
 
     public Place(Cursor cursor,boolean isPlaceAdapter) {
         category = cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_CATEGORY));
         location = new LatLng(cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LATITUDE)), cursor.getDouble(cursor.getColumnIndex(FeedEntry.COLUMN_LONGITUDE)));
         title = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_TITLE));
-        imageUrl = cursor.getBlob(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGEURL));
+        imageUri = cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_IMAGE_URI));
+        id = cursor.getInt(cursor.getColumnIndex(FeedEntry._ID));
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getCategory() {
@@ -78,12 +84,12 @@ public class Place {
         this.description = description;
     }
 
-    public byte[] getImageUrl() {
-        return imageUrl;
+    public String getImageUri() {
+        return imageUri;
     }
 
-    public void setImageUrl(byte[] imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
     public int getDistance(LatLng fromLocation){
@@ -99,7 +105,7 @@ public class Place {
         contentValues.put(FeedEntry.COLUMN_LONGITUDE, location.longitude);
         contentValues.put(FeedEntry.COLUMN_TITLE, title);
         contentValues.put(FeedEntry.COLUMN_DESCRIPTION, description);
-        contentValues.put(FeedEntry.COLUMN_IMAGEURL, imageUrl);
+        contentValues.put(FeedEntry.COLUMN_IMAGE_URI, imageUri);
 
         return contentValues;
     }

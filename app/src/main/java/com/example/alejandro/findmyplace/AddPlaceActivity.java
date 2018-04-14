@@ -2,10 +2,8 @@ package com.example.alejandro.findmyplace;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,12 +14,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.alejandro.findmyplace.saved_places.DbBitmapUtility;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.alejandro.findmyplace.sql.FeedEntry;
 import com.example.alejandro.findmyplace.sql.SqlController;
 import com.google.android.gms.maps.model.LatLng;
-
-import java.io.IOException;
 
 public class AddPlaceActivity extends AppCompatActivity {
 
@@ -41,7 +38,7 @@ public class AddPlaceActivity extends AppCompatActivity {
     LatLng myLocation;
     int idCategory;
     int categoryValue;
-    byte[] datosPhoto;
+    String datosPhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +85,8 @@ public class AddPlaceActivity extends AppCompatActivity {
                     newPlace.setLocation(myLocation);
                     newPlace.setTitle(textTitle);
                     newPlace.setDescription(textDescription);
-                    newPlace.setImageUrl(datosPhoto);
-
+                    newPlace.setImageUri(datosPhoto);
+                    newPlace.setCategory(idCategory);
 
                     sqlController.saveData(FeedEntry.TABLE_NAME,newPlace);
 
@@ -117,26 +114,12 @@ public class AddPlaceActivity extends AppCompatActivity {
             switch (requestCode){
                 case 100:
                     Uri selectedImage = data.getData();
-                    try {
-                        Bitmap myImage = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
-                        photo.setImageBitmap(myImage);
-                        newPlace.setImageUrl(DbBitmapUtility.getBytes(myImage));
-                        datosPhoto = DbBitmapUtility.getBytes(myImage);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    /*
-                    try {
-                        Bitmap myImage = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
-
-
-                        photo.setBitmap(bitmap);
-                        byte[] imageArray = DbBitmapUtility.getBytes(bitmap);
-                        //TO DO set imageArray to Place object then save that object in the database
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    */
+                    Glide.with(this)
+                            .load(selectedImage)
+                            .asBitmap()
+                            .fitCenter()
+                            .into(new BitmapImageViewTarget(photo));
+                    datosPhoto = selectedImage.toString();
                     break;
             }
         }

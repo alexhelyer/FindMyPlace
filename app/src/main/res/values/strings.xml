@@ -13,4 +13,9 @@
     <string name="gas">Gas</string>
     <string name="cafe">Café</string>
     <string name="airport">Airport</string>
+    <string name="title_activity_detail"></string>
+    <string name="empty_set">Sorry! The set is empty</string>
+    <string name="id_key">Id key</string>
+    <string name="all">All</string>
+    <string name="delete">Delete</string>
 </resources>

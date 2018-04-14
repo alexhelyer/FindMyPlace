@@ -5,6 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public class SortingManager<T extends Place>{
 
     public List<T> mergeSort(){
         mergeSort(array,0,array.length-1);
-        return Arrays.asList(array);
+        return new LinkedList<>(Arrays.asList(array));
     }
 
     //Merge Sort Algorithm

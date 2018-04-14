@@ -33,4 +33,13 @@ public class SqlController {
     public Cursor selectColumnsFromDb(String tableName,String[] columns){
         return readData(tableName,columns,null,null,null,null,null,null);
     }
+
+    public int deleteData(String tableName,String whereClause,String[] whereArgs){
+        return mDbHelper.getWritableDatabase().delete(tableName,whereClause,whereArgs);
+    }
+
+    public int deleteDataWhereId(String tableName,String id){
+        String query = "=?";
+        return deleteData(tableName,FeedEntry._ID + query,new String[]{id});
+    }
 }

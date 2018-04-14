@@ -1,24 +1,30 @@
 package com.example.alejandro.findmyplace.saved_places;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.bumptech.glide.request.target.Target;
 import com.example.alejandro.findmyplace.Place;
 import com.example.alejandro.findmyplace.R;
 import com.google.android.gms.maps.model.LatLng;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
-import java.util.ArrayList;
+import java.io.File;
 import java.util.List;
 
 import butterknife.BindView;
@@ -82,13 +88,14 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
 
         //Sets fields
         viewHolder.titleTextView.setText(currentPlace.getTitle());
-        viewHolder.distanceTextView.setText(String.format("%s m",currentPlace.getDistance(fromLocation)));
+        viewHolder.distanceTextView.setText(currentPlace.getDistance(fromLocation) + " m");
         Glide.with(parent.getContext())
                 .load("")
                 .error(getCategoryImage(currentPlace.getCategory()))
                 .into(viewHolder.categoryImage);
         Glide.with(parent.getContext())
-                .load(currentPlace.getImageUrl())
+                .load(Uri.parse(currentPlace.getImageUri()))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(viewHolder.imageView);
         viewHolder.locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +107,7 @@ public class PlaceAdapter extends ArrayAdapter<Place> {
         return convertView;
     }
 
-    private int getCategoryImage(int category){
+    public static int getCategoryImage(int category){
         int[] categories = {R.drawable.restaurant,R.drawable.hotel,R.drawable.bar,
                 R.drawable.gas,R.drawable.cafe,R.drawable.airport};
 

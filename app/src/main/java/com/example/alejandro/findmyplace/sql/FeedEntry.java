@@ -17,7 +17,6 @@ public class FeedEntry implements BaseColumns {
     public static final String COLUMN_LONGITUDE = "longitud";
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_DESCRIPTION = "description";
-    public static final String COLUMN_IMAGEURL = "image_url";
-    public static final String COLUMN_ADDRESS = "address";
+    public static final String COLUMN_IMAGE_URI = "image_uri";
 
 }
