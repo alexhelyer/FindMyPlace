@@ -14,7 +14,7 @@
         tools:context="com.example.alejandro.findmyplace.MapsActivity" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/main_location_button"
+        android:id="@+id/btnMyLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -28,11 +28,11 @@
 
     <android.support.design.widget.FloatingActionButton
                                                         
-        android:id="@+id/btnMyLocation"
+        android:id="@+id/main_float_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
