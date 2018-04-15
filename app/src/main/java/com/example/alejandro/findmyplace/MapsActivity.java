@@ -189,7 +189,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Intent intent = new Intent(this,SavedPlacesActivity.class);
                 intent.putExtra(getString(R.string.latitude_key), place.getLocation().latitude);
                 intent.putExtra(getString(R.string.longitude_key), place.getLocation().longitude);
-                startActivity(intent);
+                startActivityForResult(intent, MY_REQUEST_CODE);
                 break;
         }
         return true;
@@ -217,17 +217,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (requestCode== MY_REQUEST_CODE) {
             switch (resultCode) {
                 case 101:
-                    Toast.makeText(this, "getResult", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Marker saved", Toast.LENGTH_SHORT).show();
+                    break;
+                case 102:
+                    Double toLat = data.getDoubleExtra(getString(R.string.latitude_key),0);
+                    Double toLng = data.getDoubleExtra(getString(R.string.longitude_key), 0);
 
-                    //Place resultPlace = (Place) data.getSerializableExtra("resultPlace");
-
-                    MarkerOptions markerOptions = new MarkerOptions();
-                    markerOptions.position(new LatLng(data.getDoubleExtra("resultLat",0.0),data.getDoubleExtra("resultLon",0.0)));
-                    markerOptions.title(data.getStringExtra("resultTitle"));
-                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
-
-                    mMap.addMarker(markerOptions);
-
+                    Toast.makeText(this, "Result To Location:"+toLat+","+toLng, Toast.LENGTH_SHORT).show();
+                    drawRoute(place.location, new LatLng(toLat,toLng));
                     break;
             }
         }

@@ -168,10 +168,12 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
     @Override
     public void OnClick(int position) {
         Place currentPlace = sortedPlaceList.get(position);
-        Intent intent = new Intent(this,MapsActivity.class);
+        Intent intent = new Intent();
         intent.putExtra(getString(R.string.latitude_key),currentPlace.getLocation().latitude);
         intent.putExtra(getString(R.string.longitude_key),currentPlace.getLocation().longitude);
-        startActivity(intent);
+        //startActivity(intent);
+        setResult(102, intent);
+        finish();
     }
 
 
