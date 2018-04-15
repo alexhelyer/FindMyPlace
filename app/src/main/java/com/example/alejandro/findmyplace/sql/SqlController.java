@@ -42,4 +42,8 @@ public class SqlController {
         String query = "=?";
         return deleteData(tableName,FeedEntry._ID + query,new String[]{id});
     }
+
+    public void closeDatabase(){
+        mDbHelper.close();
+    }
 }
