@@ -7,6 +7,8 @@ import com.example.alejandro.findmyplace.sql.FeedEntry;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.SphericalUtil;
 
+import java.io.Serializable;
+
 /**
  * Created by alejandro on 11/04/18.
  */

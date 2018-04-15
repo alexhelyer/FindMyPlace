@@ -91,6 +91,13 @@ public class AddPlaceActivity extends AppCompatActivity {
                     sqlController.saveData(FeedEntry.TABLE_NAME,newPlace);
 
                     Toast.makeText(AddPlaceActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent();
+                    intent.putExtra("resultLat", newPlace.getLocation().latitude);
+                    intent.putExtra("resultLon", newPlace.getLocation().longitude);
+                    intent.putExtra("resultTitle", newPlace.getTitle());
+                    setResult(101, intent);
+
                     finish();
                 } else {
                     Toast.makeText(AddPlaceActivity.this, "¡Por favor, llena todos los campos!", Toast.LENGTH_SHORT).show();

@@ -83,7 +83,7 @@ public class PlacesApiHandler {
         return routes;
     }
 
-    private static List<LatLng> decodePolyline(String polylineString) {
+    public static List<LatLng> decodePolyline(String polylineString) {
 
         List<LatLng> polyline = new ArrayList<>();
         int index = 0;
