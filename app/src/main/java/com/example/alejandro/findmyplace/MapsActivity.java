@@ -77,7 +77,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     List<Place> listMarkers;
 
     //Flags
-    boolean isMapReady = false;
+    boolean isMapReady;
 
     //Cursor
     Cursor cursor;
@@ -92,6 +92,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        isMapReady = false;
 
         sqlController = new SqlController(this);
 
@@ -173,7 +174,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     protected void onPause() {
         locationManager.removeUpdates(localizacion);
-        mMap.clear();
+        if (isMapReady)
+            mMap.clear();
         super.onPause();
     }
 
