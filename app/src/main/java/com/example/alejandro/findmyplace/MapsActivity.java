@@ -160,6 +160,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         if (isMapReady) {
+            myMarker = new MarkerOptions().position(place.getLocation()).icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
+            marker = mMap.addMarker(myMarker);
+            localizacion.setMarker(marker);
             printMarkers();
         }
         super.onResume();
@@ -169,9 +172,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onPause() {
         locationManager.removeUpdates(localizacion);
         mMap.clear();
-        myMarker = new MarkerOptions().position(new LatLng(-34,151)).icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
-        marker = mMap.addMarker(myMarker);
-        localizacion.setMarker(marker);
         super.onPause();
     }
 
@@ -186,10 +186,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.saved_places:
-                Intent intent = new Intent(this,SavedPlacesActivity.class);
-                intent.putExtra(getString(R.string.latitude_key), place.getLocation().latitude);
-                intent.putExtra(getString(R.string.longitude_key), place.getLocation().longitude);
-                startActivityForResult(intent, MY_REQUEST_CODE);
+                if (place.getLocation()!=null) {
+                    Intent intent = new Intent(this,SavedPlacesActivity.class);
+                    intent.putExtra(getString(R.string.latitude_key), place.getLocation().latitude);
+                    intent.putExtra(getString(R.string.longitude_key), place.getLocation().longitude);
+                    startActivityForResult(intent, MY_REQUEST_CODE);
+                } else {
+                    Toast.makeText(this, "Aun no se ha detectado el GPS", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
         return true;
@@ -242,11 +246,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        //19.3910038,-99.2836977,
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(19.3910038, -99.2836977), 5.0f));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-34, 151), 1.0f));
 
-
-        myMarker = new MarkerOptions().position(new LatLng(-34,151)).icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
+        myMarker = new MarkerOptions().position(new LatLng(19.3910038,-99.2836977)).icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
         marker = mMap.addMarker(myMarker);
         localizacion.setMarker(marker);
 
@@ -270,7 +274,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    public void drawRoute(LatLng _from, LatLng _to) {
+    public void drawRoute(LatLng _from, final LatLng _to) {
         LatLng from = _from; /*new LatLng(19.40,-99.16);*/
         LatLng to = _to; /*new LatLng(19.35,-99.12);*/
         String url = PlacesApiHandler.getDirectionsUrl(from,to);
@@ -296,6 +300,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         myRoute.add(point);
                     }
                     myRoutePolyline =  mMap.addPolyline(myRoute);
+
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(_to, 10.0f));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
