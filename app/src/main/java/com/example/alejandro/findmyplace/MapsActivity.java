@@ -6,6 +6,9 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.DrawFilter;
+import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -253,14 +256,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //19.3910038,-99.2836977,
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(19.3910038, -99.2836977), 5.0f));
 
+        Drawable location =getResources().getDrawable(R.drawable.location);
+        BitmapDescriptor markerIcon = getMarkerIconFromDrawable(location);
 
-        myMarker = new MarkerOptions().position(new LatLng(-34,150)).icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
+        myMarker = new MarkerOptions().position(new LatLng(-34,150)).icon(markerIcon);
         marker = mMap.addMarker(myMarker);
         localizacion.setMarker(marker);
 
         isMapReady = true;
 
         printMarkers();
+    }
+
+    private BitmapDescriptor getMarkerIconFromDrawable(Drawable drawable) {
+        Canvas canvas = new Canvas();
+        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(),drawable.getIntrinsicHeight(),Bitmap.Config.ARGB_8888);
+        canvas.setBitmap(bitmap);
+        drawable.setBounds(0,0,drawable.getIntrinsicWidth(),drawable.getIntrinsicHeight());
+        drawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 
     public void printMarkers() {
