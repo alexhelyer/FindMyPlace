@@ -59,7 +59,9 @@
             android:name=".AddPlaceActivity"
             android:label="@string/add_place"
             android:parentActivityName=".MapsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            />
 
         <meta-data
             android:name="android.com.support.PARENT_ACTIVITY"

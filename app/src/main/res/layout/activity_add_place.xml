@@ -1,91 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.alejandro.findmyplace.AddPlaceActivity">
-
-    <ScrollView
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.example.alejandro.findmyplace.AddPlaceActivity"
+        >
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:paddingVertical="20dp"
-            android:paddingHorizontal="10dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/btnCategory"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="5dp"
-                    android:background="@drawable/ic_box"
-                    android:backgroundTint="#AAA"
-                    android:layout_marginVertical="20dp"/>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/inputTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Titulo"/>
-
-                </android.support.design.widget.TextInputLayout>
-
-            </LinearLayout>
-
-
-
-
+            <ImageView
+                android:id="@+id/btnCategory"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_box"
+                android:backgroundTint="#AAA"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:id="@+id/layoutTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/btnCategory"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnCategory"
+                app:layout_constraintTop_toTopOf="@id/btnCategory">
+
+                <EditText
+                    android:id="@+id/inputTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Title"
+                    android:inputType="textPersonName" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/layoutDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@id/layoutTitle"
+                app:layout_constraintStart_toStartOf="@id/btnCategory"
+                app:layout_constraintTop_toBottomOf="@+id/btnCategory">
 
                 <EditText
                     android:id="@+id/inputDescription"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:background="@android:color/transparent"
                     android:gravity="top"
-                    android:hint="Descipcion"/>
+                    android:hint="Description" />
 
             </android.support.design.widget.TextInputLayout>
 
             <ImageView
                 android:id="@+id/imagePhoto"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_margin="20dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/ic_plus"
                 android:backgroundTint="#EEE"
-                android:layout_gravity="center"/>
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="4:3"
+                app:layout_constraintEnd_toEndOf="@id/layoutTitle"
+                app:layout_constraintStart_toStartOf="@id/btnCategory"
+                app:layout_constraintTop_toBottomOf="@+id/layoutDescription" />
 
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="Guardar"/>
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@id/imagePhoto"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                 />
 
+        </android.support.constraint.ConstraintLayout>
 
-        </LinearLayout>
     </ScrollView>
-
-
-
-
-
-</LinearLayout>

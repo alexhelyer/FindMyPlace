@@ -280,6 +280,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onResponse(JSONObject response) {
                 //new ParsingTask(MapsActivity.this).execute(new JSONObject[]{response});
 
+
                 try {
                     JSONArray routesArray = response.getJSONArray("routes");
                     JSONObject route = routesArray.getJSONObject(0);
