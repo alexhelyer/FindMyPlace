@@ -160,6 +160,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         if (isMapReady) {
+            myMarker = new MarkerOptions().position(place.getLocation()).icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
+            marker = mMap.addMarker(myMarker);
+            localizacion.setMarker(marker);
             printMarkers();
         }
         super.onResume();
@@ -169,9 +172,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onPause() {
         locationManager.removeUpdates(localizacion);
         mMap.clear();
-        myMarker = new MarkerOptions().position(place.getLocation()).icon(BitmapDescriptorFactory.fromResource(R.drawable.location));
-        marker = mMap.addMarker(myMarker);
-        localizacion.setMarker(marker);
         super.onPause();
     }
 
