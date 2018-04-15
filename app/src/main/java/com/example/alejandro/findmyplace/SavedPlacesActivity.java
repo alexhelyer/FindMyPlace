@@ -110,7 +110,8 @@ public class SavedPlacesActivity extends AppCompatActivity implements CategoryAd
             placeListView.setAdapter(placeAdapter);
         } else {
             sortedPlaceList = new LinkedList<>();
-            placeAdapter.clear();
+            if(placeListView.getAdapter()!=null)
+                placeAdapter.clear();
         }
         placesProgressBar.setVisibility(View.GONE);
     }
